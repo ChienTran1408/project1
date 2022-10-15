@@ -2,28 +2,28 @@
 
 
 angular.module("myApp.aboutus", []).controller("aboutCtrl", function($scope, $http){
-    $http.get("assets/json/about-us.json").then(function(response){
+    $http.get("./assets/json/about-us.json").then(function(response){
         $scope.aboutus = response.data;
         console.log(response.data)
     });
 });
 
 angular.module("myApp.contact", []).controller("contactCtrl", function($scope, $http){
-    $http.get("assets/json/contact.json").then(function(response){
+    $http.get("./assets/json/contact.json").then(function(response){
         $scope.contact = response.data;
         console.log(response.data)
     });
 });
 
 angular.module("myApp.fqa", []).controller("fqaCtrl", function($scope, $http){
-    $http.get("assets/json/FQA.json").then(function(response){
+    $http.get("./assets/json/FQA.json").then(function(response){
         $scope.fqas = response.data;
         console.log(response.data)
     });
 });
 
 angular.module("myApp.gallery", []).controller("galleryCtrl", function($scope, $http){
-    $http.get("assets/json/gallery.json").then(function(response){
+    $http.get("./assets/json/gallery.json").then(function(response){
         $scope.gallery = response.data;
         console.log(response.data)
     
