@@ -124,7 +124,7 @@ var myapp=angular.module("myApp",[
         })
 
     myapp.controller("ratedCtrl",function($http,$scope){
-        $http.get("../assets/json/rated-products.json").then(function(response){
+        $http.get("./assets/json/rated-products.json").then(function(response){
             $scope.ratedlist=response.data;
         })
     })
