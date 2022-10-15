@@ -1,0 +1,135 @@
+    <!--breadcrumbs area start-->
+    <div class="breadcrumbs_area">
+        <div class="container">   
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb_content">
+                        <h3>My account</h3>
+                        <ul>
+                            <li><a href="#/!">home</a></li>
+                            <li>></li>
+                            <li>My account</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>         
+    </div>
+    <!--breadcrumbs area end-->
+    
+    <!-- customer login start -->
+    <div class="customer_login">
+        <div class="container">
+            <div class="row">
+               <!--login area start-->
+                <div class="col-lg-6 col-md-6">
+                    <div class="account_form">
+                        <h2>login</h2>
+                        <form class="form-horizontal" name="login" novalidate>
+                            <!--Code to validate first name is written here-->
+                            <div class="form-group">
+                                <label id="label" class="control-label">Username<span class="msg error" ng-show="login.usernamelogin.$error.required">&nbsp*</span></label>
+                                <input type="text" class="form-control" name="usernamelogin" ng-model="user.usernamelogin" placeholder="Enter Username" autocomplete="off" required />
+                            </div><br>
+                            
+                            <!--Code to validate password is written here-->
+                            <div class="form-group">
+                                <label id="label" class="control-label">Password<span class="msg error" ng-show="login.passlogin  .$error.required">&nbsp*</span></label>
+                                <input type="password" class="form-control" ng-model="user.passlogin" name="passlogin"
+                                    placeholder="Enter Password" required>                                
+                            </div><br>
+                            <!--Code to disable submit button is written here-->
+                            
+                            <div class="form-group login_submit">
+                                <label for="remember">
+                                    <input id="remember" type="checkbox">
+                                    Remember me
+                                </label>
+                                <button ng-disabled="login.$invalid" class="btn" type="submit" ng-click="loginUser()" value="Submit">Login</button>
+                            </div>
+                            <div class="alert1" ng-show="login_success">
+                                <a href="#/!" style="text-decoration: underline; color:green" class="loginpopup error">Back to homepage!</a>
+                                <span style="color:green" class="loginpopup error">Login Successfully.&nbsp</span>
+                            </div>
+                            <div class="alert1" ng-show="login_failed">
+                                <span class="loginpopup error">Incorrect username or password.&nbsp</span>
+                            </div>
+                        </form>                        
+                     </div>    
+                </div>
+                <!--login area start-->
+
+                <!--register area start-->
+                <div class="col-lg-6 col-md-6">
+                    <div class="account_form register">
+                        <h2>Register</h2>
+                        <form class="form-horizontal" name="frm" novalidate>
+                            <!--Code to validate first name is written here-->
+                            <div class="form-group">
+                                <label id="label" class="control-label">Username<span class="msg error" ng-show="frm.username.$error.required">&nbsp*</span></label>
+                                <input type="text" class="form-control" name="username" ng-model="user.username" placeholder="Enter Username" autocomplete="off" required />
+                            </div><br>
+                            <!--Code to validate email address is written here-->
+                            <div class="form-group">
+                                <label id="label" class="control-label">Email<span class="msg error" ng-show="frm.email.$error.required">&nbsp*</span></label>
+                                <input type="email" class="form-control" ng-model="user.email" name="email"
+                                    placeholder="Enter Email Address" autocomplete="off" required>
+                                <span class="msg error" ng-show="frm.email.$dirty && frm.email.$invalid">Email Address is not valid</span>
+                            </div><br>
+                            <!--Code to validate password is written here-->
+                            <div class="form-group">
+                                <label id="label" class="control-label">Password<span class="msg error" ng-show="frm.pass.$error.required">&nbsp*</span></label>
+                                <input type="password" class="form-control" ng-model="user.pass" name="pass"
+                                    placeholder="Enter Password" autocomplete="off" ng-minlength="5" ng-maxlength="20" required>
+                                <span class="msg error" ng-show="frm.pass.$dirty && frm.pass.$error.minlength">Password must contain atleast 5 characters</span>
+                                <span class="msg error" ng-show="frm.pass.$dirty && frm.pass.$error.maxlength">Max-length of password reached</span>
+                            </div><br>                                            
+                            <!--Code to validate country field-->
+                            <div class="form-group">
+                                <label id="label" class="control-label">Country<span class="msg error" ng-show="frm.cont.$error.required">&nbsp*</span></label>
+                                <select class="form-control" ng-model="user.country" name="cont" required>
+                                    <option value="">-Select one-</option>
+                                    <option ng-repeat="p in countries" value="{{p.name}}">{{p.name}}</option>
+                                </select>   
+                            </div><br>
+                            <!--Code to disable submit button is written here-->
+                            <div class="form-group">
+                                <button ng-disabled="frm.$invalid" class="btn btn1" type="submit" ng-click="call()" value="Submit">Sign Up</button>
+                            </div>
+                            <br>
+                        </form>
+                        <div class="account_form">
+                            <div class="alert1" ng-show="submit_success" style="word-wrap:break-word;">
+                                <div class="login">
+                                    <hr>
+                                    <h3 class="text-center">Register Successfully</h3>
+                                    <div class="row">
+                                        <div class="col-md-5 headname">
+                                            <b>Username:</b>
+                                        </div>
+                                        <div class="col-md-7"> {{server.username}}</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-5 headname"><b>Email: </b> </div>
+                                        <div class="col-md-7"> {{server.email}}<br></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-5 headname"><b>Password:</b></div>
+                                        <div class="col-md-7"> {{server.pass}}<br></div>
+                                    </div>       
+                                    <div class="row">
+                                        <div class="col-md-5 headname"><b>Country: </b></div>
+                                        <div class="col-md-7"> {{server.country}}<br></div>
+                                    </div>
+                                    <!--<b>JSON Data: </b> {{server}}-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                </div>  
+                <!--register area end-->
+            </div>
+        </div>    
+    </div>
+    
+    <!-- customer login end -->

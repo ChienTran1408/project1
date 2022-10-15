@@ -1,0 +1,60 @@
+<div ng-controller="aboutCtrl">
+  <!--breadcrumbs area start-->
+<div class="breadcrumbs_area">
+  <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="breadcrumb_content">
+            <h3>about us</h3>
+            <ul>
+              <li><a href="#!/">home</a></li>
+              <li>></li>
+              <li>about us</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+<!--breadcrumbs area end-->
+
+<!--about section area -->
+<div class="about_section" ng-repeat="ab in aboutus">
+<div class="container">
+  <div class="row align-items-center">
+    <div class="col-12">
+      <div class="about_thumb">
+        <img ng-src="{{ab.Img}}" alt="" />
+      </div>
+
+      <div class="about_content">
+        <h1>{{ab.Header1}}</h1>
+        <p>
+          {{ab.P1}}
+        </p>
+        <p>
+          {{ab.P2}}
+        </p>
+        <span>{{ab.Slogan}}</span>
+      </div>
+      <br />
+      <div class="about_content">
+        <h1>{{ab.Header2}}</h1>
+        <p>
+          {{ab.P3}}
+        </p>
+      </div>
+      <div class="about_thumb">
+        <img
+          ng-src="{{ab.MemberImg}}"
+          width="50%"
+          height="50%"
+          style="margin-left: 348px"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!--about section end-->
+</div>
