@@ -25,7 +25,7 @@ angular.module("myApp.banner",[]).controller("bannerCtrl",function($scope,$http)
 })
 
 angular.module("myApp.blog",[]).controller("blogCtrl",function($scope,$http){
-    $http.get("assets/json/blog.json").then(function(response){
+    $http.get("./assets/json/blog.json").then(function(response){
         $scope.blogs=response.data;
         console.log(response.data)
     })
